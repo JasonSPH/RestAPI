@@ -869,6 +869,8 @@ class Trader(object):
                 if k != "self":
                     if k == 'account_id' and v is None:
                         v = self.account_id
+                    if k == 'forSymbol':
+                        v = str(v).lower()
                     params[k] = v
             return self.send("/trading/close_all_for_symbol", params)
         except Exception as e:
